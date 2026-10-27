@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-luma",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Luma (lu.ma) event discovery.",
   "type": "module",
   "main": "src/index.ts",
@@ -26,7 +26,7 @@
     "@cloudflare/workers-types": "^4.20260405.1"
   },
   "pipeworx": {
-    "sourceHash": "v1-bcf3b0d18b4fd2de18d5dd9cf0f0d82987e2dc565d9fa29c4f300193bdf7cc69",
-    "sourceCommit": "4f465027cf3de54acf4976d8118ae3423a8ec9fa"
+    "sourceHash": "v1-fcb5d507b39f5e346d3e93b2932d993eee9b17f053acb506a98cc9f16a3961ef",
+    "sourceCommit": "33741fe6d9ba71856e73fa683c73572d1ddf2e93"
   }
 }
