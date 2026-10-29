@@ -3,7 +3,7 @@
   "name": "io.github.pipeworx-io/luma",
   "title": "Luma",
   "description": "Luma (lu.ma) event discovery.",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "websiteUrl": "https://pipeworx.io/packs/luma",
   "repository": {
     "url": "https://github.com/pipeworx-io/mcp-luma",

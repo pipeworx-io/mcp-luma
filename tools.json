@@ -1,0 +1,88 @@
+[
+  {
+    "name": "luma_places",
+    "description": "List Luma's curated discover cities (lu.ma/discover) — the place_id, coordinates and live event_count for each. Use this to find a place_id for luma_events, or just pass a city name to luma_events directly.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "Optional substring filter on city name, e.g. \"san\" matches San Francisco, San Diego."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Max cities to return (1-100, default 25)."
+        }
+      }
+    }
+  },
+  {
+    "name": "luma_events",
+    "description": "List public upcoming events from a Luma discover city feed. Pass a city name (resolved for you) or a place_id from luma_places. Optional keyword filters event name/venue/calendar client-side. Never returns guest lists or attendee data.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "type": "string",
+          "description": "City name or slug, e.g. \"San Francisco\" or \"sf\". Resolved to a Luma place_id."
+        },
+        "place_id": {
+          "type": "string",
+          "description": "A Luma discover place_id (e.g. \"discplace-BDj7GNbGlsF7Cka\") from luma_places. Use instead of city."
+        },
+        "query": {
+          "type": "string",
+          "description": "Optional keyword to filter by event name, venue or organizer (matched client-side; paginates up to 200 events to find matches)."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Max events to return (1-50, default 20)."
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from a previous call's next_cursor (ignored when query is set)."
+        }
+      }
+    }
+  },
+  {
+    "name": "luma_event",
+    "description": "Get full public detail for one Luma event — description, timing, venue, hosts, categories, ticket types and FAQs. Never returns guest lists or attendee data.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "event_id": {
+          "type": "string",
+          "description": "A Luma event api_id, e.g. \"evt-qlNoZjWKJzEq5ao\"."
+        }
+      },
+      "required": [
+        "event_id"
+      ]
+    }
+  },
+  {
+    "name": "luma_calendar_events",
+    "description": "List public upcoming events on a Luma organizer calendar page (e.g. a company's or community's event series). Never returns guest lists or attendee data.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "calendar_id": {
+          "type": "string",
+          "description": "A Luma calendar api_id, e.g. \"cal-lYa2810srHvkQRC\" (found on any of that calendar's events via luma_event or luma_events)."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Max events to return (1-50, default 20)."
+        },
+        "cursor": {
+          "type": "string",
+          "description": "Pagination cursor from a previous call's next_cursor."
+        }
+      },
+      "required": [
+        "calendar_id"
+      ]
+    }
+  }
+]
